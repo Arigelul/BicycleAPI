@@ -5,13 +5,9 @@ using System.Threading.Tasks;
 
 namespace BicycleAPI.Models
 {
-    public class Bicycle
+    public class BicycleType
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int BicycleTypeId { get; set; }
-        public BicycleType BicycleType { get; set; }
-        public decimal Price { get; set; }
-        public bool IsRented { get; set; }
     }
 }
