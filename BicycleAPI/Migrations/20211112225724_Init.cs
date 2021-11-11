@@ -10,9 +10,9 @@ namespace BicycleAPI.Migrations
                 name: "BicycleType",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -23,12 +23,12 @@ namespace BicycleAPI.Migrations
                 name: "Bicycle",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BicycleTypeId = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    BicycleTypeId = table.Column<int>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    IsRented = table.Column<bool>(type: "bit", nullable: false)
+                    IsRented = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

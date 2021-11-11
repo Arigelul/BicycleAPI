@@ -12,10 +12,7 @@ namespace BicycleAPI.Data
         public DbSet<Bicycle> Bicycles { get; set; }
         public DbSet<Bicycle> BicycleTypes { get; set; }
 
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) 
-        {
-            Database.EnsureCreated();
-        }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

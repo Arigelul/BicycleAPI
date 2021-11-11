@@ -9,15 +9,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BicycleAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211110200114_Init")]
+    [Migration("20211112225724_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("ProductVersion", "3.1.21")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("BicycleAPI.Models.Bicycle", b =>
@@ -122,8 +122,6 @@ namespace BicycleAPI.Migrations
                         .HasForeignKey("BicycleTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("BicycleType");
                 });
 #pragma warning restore 612, 618
         }
