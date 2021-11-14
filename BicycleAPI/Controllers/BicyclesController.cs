@@ -71,7 +71,7 @@ namespace BicycleAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(bicycle);
         }
 
         // POST: api/Bicycles
