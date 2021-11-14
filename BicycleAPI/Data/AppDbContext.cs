@@ -10,7 +10,7 @@ namespace BicycleAPI.Data
     public class AppDbContext : DbContext
     {
         public DbSet<Bicycle> Bicycles { get; set; }
-        public DbSet<Bicycle> BicycleTypes { get; set; }
+        public DbSet<BicycleType> BicycleTypes { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
 

@@ -1,0 +1,46 @@
+﻿<h1>Awesome bike rental</h1>
+
+<h2>Create new bike</h2>
+<div>
+    <p>Create new rent</p>
+    <div class="form-group">
+        <label>Bike name</label>
+        <input type="text" [(ngModel)]="bicycle.name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Bike type</label>
+        <select [(ngModel)]="bicycle.bicycleTypeId">
+            <option *ngFor="let b of bicycleTypes" [value]="b.id">
+                {{b.name}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Rent price</label>
+        <input type="number" [(ngModel)]="bicycle.price" class="form-control" />
+    </div>
+    <div>
+        <input type="button" value="Add bike" (click)="create()" class="btn btn-success" />
+    </div>
+</div>
+
+<h2>Your rent ({{totalPrice | currency}})</h2>
+<div *ngFor="let b of bicycles">
+    <ng-template [ngIf]="b?.isRented == true">
+        <div>{{b?.name}} / {{getBicycleTypeName(b)}} / {{b?.price | currency}}</div>
+        <div>
+            <button class="btn btn-sm btn-danger" (click)="edit(b)">Cancel rent</button>
+        </div>
+    </ng-template>
+</div>
+
+<h2>Available bicycles ({{availableBicyclesCount}})</h2>
+<div *ngFor="let b of bicycles">
+    <ng-template [ngIf]="b?.isRented == false">
+        <div>{{b?.name}} / {{getBicycleTypeName(b)}} / {{b?.price | currency}}</div>
+        <div>
+            <button class="btn btn-sm btn-primary" (click)="edit(b)">Rent</button>
+            <button class="btn btn-sm btn-danger" (click)="delete(b)">Delete</button>
+        </div>
+    </ng-template>
+</div>
