@@ -37,7 +37,8 @@ export class AppComponent implements OnInit {
         this.bicycle.bicycleTypeId = +this.bicycle.bicycleTypeId;
         this.bicycle.isRented = false;
         this.dataService.createBicycle(this.bicycle)
-           .subscribe((data: Bicycle) => this.bicycles.push(data));
+            .subscribe((data: Bicycle) => this.bicycles.push(data));
+        this.bicycle = new Bicycle();
     }
 
     getBicycleTypeName(b: Bicycle) {
